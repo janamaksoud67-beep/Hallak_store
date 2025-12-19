@@ -1,0 +1,2910 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH Fashion | Modern Clothing Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5A54D4;
+            --secondary: #FF6584;
+            --accent: #36D399;
+            --light: #F8FAFC;
+            --dark: #2D3748;
+            --gray: #718096;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 50px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9f7ff 0%, #fff7f9 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            padding: 12px 25px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.3);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .cart-badge {
+            background: var(--secondary);
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=2000&auto=format&fit=crop') no-repeat center/cover;
+            padding: 150px 0;
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin-bottom: 60px;
+            color: white;
+        }
+        
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .category-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+        
+        .category-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -45px auto 20px;
+            color: white;
+            font-size: 30px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .category-info h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .category-info p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 2;
+        }
+        
+        .product-badge.featured {
+            background: linear-gradient(135deg, var(--accent) 0%, #27AE60 100%);
+            color: white;
+        }
+        
+        .product-badge.new {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .product-badge.sold-out {
+            background: linear-gradient(135deg, #FF6584 0%, #FF476F 100%);
+            color: white;
+        }
+        
+        .product-badge.sale {
+            background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
+            color: white;
+        }
+        
+        .product-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image.sold-out::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-category {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .product-description {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #eee;
+        }
+        
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .price-old {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .price-unit {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .whatsapp-btn, .view-btn, .fast-delivery-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+        
+        .view-btn {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .view-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .fast-delivery-btn {
+            background: var(--secondary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .fast-delivery-btn:hover {
+            background: #FF476F;
+            transform: translateY(-3px);
+        }
+        
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .feature-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Store Location */
+        .store-location {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 60px 0;
+        }
+        
+        .location-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 25px 40px;
+        }
+        
+        .location-header h3 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .location-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 992px) {
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .map-placeholder i {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .address-info {
+            padding: 20px;
+        }
+        
+        .address-info h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .address-details {
+            list-style: none;
+        }
+        
+        .address-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--gray);
+        }
+        
+        .address-details i {
+            color: var(--primary);
+            width: 25px;
+        }
+        
+        /* Out of Stock Styles */
+        .out-of-stock-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1.2rem;
+            z-index: 3;
+        }
+        
+        .sold-out-btn {
+            background: #95a5a6 !important;
+            color: white !important;
+            cursor: not-allowed !important;
+        }
+        
+        .sold-out-btn:hover {
+            transform: none !important;
+            background: #7f8c8d !important;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--primary);
+        }
+        
+        .thumbnail.active {
+            border-color: var(--primary);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 80px 0 30px;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+        
+        /* Admin Modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .admin-content {
+            background: white;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            background: white;
+            height: 100%;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .admin-sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+            color: white;
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+        
+        .admin-main {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        /* Product Management */
+        .product-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .product-filters button {
+            padding: 8px 20px;
+            border: 2px solid #eee;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .product-filters button:hover,
+        .product-filters button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .admin-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .admin-product-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            border: 2px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .admin-product-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .product-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .status-available {
+            background: #36D399;
+            color: white;
+        }
+        
+        .status-sold-out {
+            background: #FF6584;
+            color: white;
+        }
+        
+        .status-hidden {
+            background: #718096;
+            color: white;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .product-actions button {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .edit-btn {
+            background: #36D399;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background: #27AE60;
+        }
+        
+        .delete-btn {
+            background: #FF6584;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background: #FF476F;
+        }
+        
+        .toggle-btn {
+            background: #6C63FF;
+            color: white;
+        }
+        
+        .toggle-btn:hover {
+            background: #5A54D4;
+        }
+        
+        /* Forms */
+        .admin-form {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 100px 20px;
+            }
+            
+            .price {
+                font-size: 1.5rem;
+            }
+            
+            .price-old {
+                font-size: 1rem;
+            }
+            
+            .admin-panel {
+                flex-direction: column;
+            }
+            
+            .admin-sidebar {
+                width: 100%;
+                height: auto;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Hidden class for products */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        MH
+                    </div>
+                    <div class="logo-text">
+                        <h1>MH Fashion</h1>
+                        <span>Premium Clothing Store</span>
+                    </div>
+                </div>
+                
+                <nav class="nav">
+                    <a href="#" class="nav-link active" onclick="showSection('home')">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#" class="nav-link" onclick="showSection('products')">
+                        <i class="fas fa-store"></i> Products
+                        <span class="cart-badge" id="productsCount">28</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="showCartModal()">
+                        <i class="fas fa-shopping-bag"></i> Cart
+                        <span class="cart-badge" id="cartTotalItems">0</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="showSection('about')">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                    <a href="#" class="nav-link" onclick="openAdminPanel()" style="background: var(--dark); color: white;">
+                        <i class="fas fa-user-shield"></i> Admin
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home-section">
+                <div class="hero animate">
+                    <h2>Modern Fashion for Everyone</h2>
+                    <p>Discover our premium collection of clothing, shoes, bags, and accessories. High quality with affordable prices for all styles.</p>
+                    <button class="btn btn-primary" onclick="showSection('products')">
+                        <i class="fas fa-shopping-bag"></i> Shop Now
+                    </button>
+                    <button class="btn btn-secondary" style="margin-left: 15px;" onclick="scrollToLocation()">
+                        <i class="fas fa-map-marker-alt"></i> Contact Us
+                    </button>
+                </div>
+                
+                <!-- Statistics -->
+                <div class="stats-grid">
+                    <div class="stat-card animate">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-card animate">
+                        <div class="stat-number">28+</div>
+                        <div class="stat-label">Fashion Products</div>
+                    </div>
+                    <div class="stat-card animate">
+                        <div class="stat-number">Fast</div>
+                        <div class="stat-label">Delivery Service</div>
+                    </div>
+                    <div class="stat-card animate">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Quality Guarantee</div>
+                    </div>
+                </div>
+                
+                <!-- Store Location -->
+                <div class="store-location animate">
+                    <div class="location-header">
+                        <h3><i class="fas fa-map-marker-alt"></i> Contact Information</h3>
+                    </div>
+                    <div class="location-content">
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <i class="fas fa-store"></i>
+                                <h4>MH Fashion Store</h4>
+                                <p>WhatsApp Orders Only</p>
+                                <a href="https://wa.me/+96181400899" target="_blank" class="btn btn-primary" style="margin-top: 20px;">
+                                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        <div class="address-info">
+                            <h4>Store Information</h4>
+                            <ul class="address-details">
+                                <li><i class="fas fa-map-pin"></i> <strong>Address:</strong> Beirut, Lebanon</li>
+                                <li><i class="fas fa-clock"></i> <strong>Working Hours:</strong> 9:00 AM - 10:00 PM Daily</li>
+                                <li><i class="fas fa-phone"></i> <strong>Phone:</strong> +961 81 400 899</li>
+                                <li><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +961 81 400 899</li>
+                                <li><i class="fas fa-truck"></i> <strong>Delivery:</strong> Free delivery for orders over $50</li>
+                            </ul>
+                            <button onclick="showFastDeliveryInfo()" class="btn" style="background: var(--secondary); color: white; margin-top: 20px; width: 100%;">
+                                <i class="fas fa-bolt"></i> FAST DELIVERY Available
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categories -->
+                <div class="section-title">
+                    <h2>Our Categories</h2>
+                    <p>Browse through our wide selection of fashion products</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card animate" onclick="filterProducts('clothing')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=400&fit=crop" alt="Clothing">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Clothing</h3>
+                            <p>T-shirts, shirts, dresses and more</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" onclick="filterProducts('shoes')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop" alt="Shoes">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Shoes</h3>
+                            <p>Casual, formal, and sports footwear</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" onclick="filterProducts('bags')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=400&fit=crop" alt="Bags">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Bags</h3>
+                            <p>Handbags, backpacks, and wallets</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" onclick="filterProducts('jackets')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=400&fit=crop" alt="Jackets">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-vest"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Jackets</h3>
+                            <p>Coats, jackets, and hoodies</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" onclick="filterProducts('pants')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=400&fit=crop" alt="Pants">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Pants</h3>
+                            <p>Jeans, trousers, and leggings</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" onclick="filterProducts('accessories')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" alt="Accessories">
+                        </div>
+                        <div class="category-icon">
+                            <i class="fas fa-rings-wedding"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>Accessories</h3>
+                            <p>Jewelry, belts, scarves and more</p>
+                            <button class="btn" style="background: var(--primary); color: white; width: 100%;">
+                                Browse Products
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="section-title">
+                    <h2>Why Choose MH Fashion</h2>
+                    <p>We provide the best fashion products with highest quality</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p style="color: var(--gray);">Same-day delivery in Beirut area</p>
+                    </div>
+                    
+                    <div class="feature-card animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>High Quality</h3>
+                        <p style="color: var(--gray);">Premium quality with affordable prices</p>
+                    </div>
+                    
+                    <div class="feature-card animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p style="color: var(--gray);">Always here to help with your needs</p>
+                    </div>
+                    
+                    <div class="feature-card animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>Easy Returns</h3>
+                        <p style="color: var(--gray);">7-day return policy for all products</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonials -->
+                <div class="section-title">
+                    <h2>What Our Customers Say</h2>
+                    <p>Real feedback from our happy customers</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card animate" style="text-align: center; padding: 30px;">
+                        <div class="category-icon" style="margin-top: 0; background: var(--secondary);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Mariam</h3>
+                        <p style="color: var(--gray); font-style: italic; margin: 15px 0;">"The best quality clothing I've ever bought. Highly recommended!"</p>
+                        <div style="color: #FFB74D;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" style="text-align: center; padding: 30px;">
+                        <div class="category-icon" style="margin-top: 0; background: var(--accent);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Mohammad hallak</h3>
+                        <p style="color: var(--gray); font-style: italic; margin: 15px 0;">"Fast delivery and excellent customer service. Thank you!"</p>
+                        <div style="color: #FFB74D;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card animate" style="text-align: center; padding: 30px;">
+                        <div class="category-icon" style="margin-top: 0; background: var(--primary);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Nourhan marhaba</h3>
+                        <p style="color: var(--gray); font-style: italic; margin: 15px 0;">"Perfect fit and great quality. Will order again!"</p>
+                        <div style="color: #FFB74D;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Products Section -->
+            <section id="products-section" style="display: none;">
+                <div class="section-title">
+                    <h2>Our Fashion Products</h2>
+                    <p>Browse our complete collection of clothing, shoes, bags and accessories</p>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('clothing')">Clothing</button>
+                    <button class="filter-btn" onclick="filterProducts('shoes')">Shoes</button>
+                    <button class="filter-btn" onclick="filterProducts('bags')">Bags</button>
+                    <button class="filter-btn" onclick="filterProducts('jackets')">Jackets</button>
+                    <button class="filter-btn" onclick="filterProducts('pants')">Pants</button>
+                    <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+                    <button class="filter-btn" onclick="filterProducts('available')">Available</button>
+                    <button class="filter-btn" onclick="filterProducts('sold-out')">Sold Out</button>
+                    <button class="filter-btn" onclick="filterProducts('hidden')">Hidden</button>
+                </div>
+                
+                <div id="all-products" class="products-grid">
+                    <!-- All products will load here -->
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section id="about-section" style="display: none;">
+                <div class="section-title">
+                    <h2>About MH Fashion</h2>
+                    <p>Learn about our story, values, and commitment to quality</p>
+                </div>
+                
+                <div style="background: white; padding: 60px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 50px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 50px;">
+                        <div>
+                            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 25px; line-height: 1.3;">Our Story</h3>
+                            <p style="color: var(--gray); line-height: 1.8; margin-bottom: 25px;">
+                                MH Fashion was founded by Mohamed Hallak with a simple mission: to provide high-quality, fashionable clothing at affordable prices. 
+                                We started as a small local store and grew to become a trusted destination for modern fashion known for its quality and style.
+                            </p>
+                            <p style="color: var(--gray); line-height: 1.8;">
+                                We work directly with manufacturers to ensure the best quality products reach our customers at competitive prices.
+                                We carefully select each item to ensure your satisfaction and confidence in your purchase.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="https://www2.0zz0.com/2025/12/19/22/281311356.jpg" 
+                                 alt="Mohamed hallak" style="width: 100%; border-radius: var(--radius);">
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 50px;">
+                        <h3 style="color: var(--primary); margin-bottom: 40px;">Contact Information</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                            <div>
+                                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+                                            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 28px;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h4 style="margin-bottom: 10px;">Phone</h4>
+                                <a href="tel:+96181400899" style="color: var(--primary); text-decoration: none;">+961 81 400 899</a>
+                            </div>
+                            
+                            <div>
+                                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); 
+                                            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 28px;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h4 style="margin-bottom: 10px;">WhatsApp</h4>
+                                <a href="https://wa.me/+96181400899" style="color: var(--primary); text-decoration: none;">+961 81 400 899</a>
+                            </div>
+                            
+                            <div>
+                                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--secondary) 0%, #FF476F 100%); 
+                                            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 28px;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4 style="margin-bottom: 10px;">Email</h4>
+                                <a href="mhammadhallak085@gmail.com" style="color: var(--primary); text-decoration: none;">mhammadhallak085@gmail.com</a>
+                            </div>
+                            
+                            <div>
+                                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--accent) 0%, #27AE60 100%); 
+                                            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 28px;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h4 style="margin-bottom: 10px;">Location</h4>
+                                <p style="color: var(--gray);">Tripoli, Lebanon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MH Fashion</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Your favorite destination for modern fashion. We offer the best quality clothing, shoes, bags and accessories at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/+96181400899" class="social-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://tiktok.com" class="social-link" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showSection('home')"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#" onclick="showSection('products')"><i class="fas fa-chevron-right"></i> All Products</a></li>
+                        <li><a href="#" onclick="showCartModal()"><i class="fas fa-chevron-right"></i> Shopping Cart</a></li>
+                        <li><a href="#" onclick="showSection('about')"><i class="fas fa-chevron-right"></i> About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+96181400899"><i class="fas fa-phone"></i> +961 81 400 899</a></li>
+                        <li><a href="https://wa.me/+96181400899"><i class="fab fa-whatsapp"></i> +961 81 400 899 (WhatsApp)</a></li>
+                        <li><a href="mhammadhallak085@gmail.com"><i class="fas fa-envelope"></i> mhammadhallak085@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Tripoli, Lebanon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Working Hours</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 10:00 PM</li>
+                        <li><i class="fas fa-clock"></i> Saturday: 10:00 AM - 11:00 PM</li>
+                        <li><i class="fas fa-clock"></i> Sunday: 11:00 AM - 9:00 PM</li>
+                        <li><i class="fas fa-shipping-fast"></i> Same-day delivery available</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 MH Fashion. All rights reserved. | Modern fashion store in Beirut, Lebanon</p>
+                <p style="margin-top: 10px;">Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> by Mohamed Hilal</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Cart Modal -->
+    <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: var(--radius); width: 90%; max-width: 500px; padding: 30px; position: relative;">
+            <span onclick="closeCartModal()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--gray);">&times;</span>
+            
+            <h2 style="color: var(--primary); margin-bottom: 20px;">
+                <i class="fas fa-shopping-bag"></i> Shopping Cart
+            </h2>
+            
+            <div id="cartItems" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
+                <!-- Cart items will appear here -->
+            </div>
+            
+            <div style="background: var(--light); padding: 20px; border-radius: var(--radius); margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <strong>Total Amount:</strong>
+                    <span id="cartTotal" style="font-size: 1.5rem; color: var(--primary);">$0.00</span>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+                <button onclick="clearCart()" class="btn" style="background: var(--light); color: var(--dark); flex: 1;">
+                    <i class="fas fa-trash"></i> Clear Cart
+                </button>
+                <button onclick="closeCartModal()" class="btn" style="background: var(--gray); color: white; flex: 1;">
+                    <i class="fas fa-times"></i> Close
+                </button>
+                <button onclick="checkout()" class="btn btn-primary" style="flex: 2;">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fast Delivery Info Modal -->
+    <div id="fastDeliveryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: var(--radius); width: 90%; max-width: 500px; padding: 30px; position: relative;">
+            <span onclick="closeFastDeliveryModal()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--gray);">&times;</span>
+            
+            <h2 style="color: var(--secondary); margin-bottom: 20px;">
+                <i class="fas fa-bolt"></i> Fast Delivery Service
+            </h2>
+            
+            <div style="margin-bottom: 25px;">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">🚚 Same-Day Delivery Available!</h4>
+                <ul style="color: var(--gray); line-height: 1.8; padding-left: 20px;">
+                    <li>Orders placed before 3:00 PM delivered same day</li>
+                    <li>Free delivery for orders over $50</li>
+                    <li>Delivery charge: $5 for orders under $50</li>
+                    <li>Delivery areas: Beirut and surrounding areas</li>
+                    <li>Delivery time: 2-4 hours</li>
+                </ul>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h4 style="color: var(--primary); margin-bottom: 10px;">📞 How to Order Fast Delivery:</h4>
+                <ol style="color: var(--gray); line-height: 1.8; padding-left: 20px;">
+                    <li>Add products to your cart</li>
+                    <li>Click "Order via WhatsApp"</li>
+                    <li>Mention "FAST DELIVERY" in your message</li>
+                    <li>We'll confirm delivery time within 15 minutes</li>
+                </ol>
+            </div>
+            
+            <button onclick="closeFastDeliveryModal()" class="btn" style="background: var(--secondary); color: white; width: 100%;">
+                <i class="fas fa-check"></i> Got it!
+            </button>
+        </div>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-modal">
+        <div class="admin-content">
+            <div class="admin-panel">
+                <!-- Admin Sidebar -->
+                <div class="admin-sidebar">
+                    <h3 style="color: white; margin-bottom: 30px; font-size: 24px;">
+                        <i class="fas fa-user-shield"></i> Admin Panel
+                    </h3>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 10px;">Welcome, Admin</p>
+                            <button onclick="closeAdminPanel()" class="btn" style="background: var(--secondary); color: white; width: 100%; padding: 8px;">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <nav style="display: flex; flex-direction: column; gap: 10px;">
+                        <button onclick="showAdminSection('stats')" class="btn" style="background: rgba(255,255,255,0.1); color: white; text-align: left; padding: 15px; border-radius: 8px; border: none; cursor: pointer;">
+                            <i class="fas fa-chart-bar"></i> Statistics
+                        </button>
+                        <button onclick="showAdminSection('products')" class="btn active" style="background: rgba(255,255,255,0.2); color: white; text-align: left; padding: 15px; border-radius: 8px; border: none; cursor: pointer;">
+                            <i class="fas fa-box"></i> Manage Products
+                        </button>
+                        <button onclick="showAdminSection('add')" class="btn" style="background: rgba(255,255,255,0.1); color: white; text-align: left; padding: 15px; border-radius: 8px; border: none; cursor: pointer;">
+                            <i class="fas fa-plus-circle"></i> Add Product
+                        </button>
+                        <button onclick="showAdminSection('orders')" class="btn" style="background: rgba(255,255,255,0.1); color: white; text-align: left; padding: 15px; border-radius: 8px; border: none; cursor: pointer;">
+                            <i class="fas fa-shopping-cart"></i> View Orders
+                        </button>
+                    </nav>
+                </div>
+                
+                <!-- Admin Main Content -->
+                <div class="admin-main">
+                    <!-- Statistics Section -->
+                    <div id="admin-stats" class="admin-section" style="display: none;">
+                        <div class="admin-header">
+                            <h2 style="color: var(--primary);">
+                                <i class="fas fa-chart-bar"></i> Store Statistics
+                            </h2>
+                            <button onclick="closeAdminPanel()" class="btn" style="background: var(--light); color: var(--dark);">
+                                <i class="fas fa-times"></i> Close
+                            </button>
+                        </div>
+                        
+                        <div class="stats-grid" style="margin: 30px 0;">
+                            <div class="stat-card">
+                                <div class="stat-number" id="admin-total-products">28</div>
+                                <div class="stat-label">Total Products</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="admin-available-products">24</div>
+                                <div class="stat-label">Available Products</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="admin-sold-out-products">3</div>
+                                <div class="stat-label">Sold Out Products</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="admin-hidden-products">1</div>
+                                <div class="stat-label">Hidden Products</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary); margin-bottom: 20px;">Quick Actions</h3>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <button onclick="showAdminSection('products')" class="btn" style="background: var(--primary); color: white;">
+                                    <i class="fas fa-box"></i> Manage Products
+                                </button>
+                                <button onclick="showAdminSection('add')" class="btn" style="background: var(--accent); color: white;">
+                                    <i class="fas fa-plus"></i> Add New Product
+                                </button>
+                                <button onclick="exportProducts()" class="btn" style="background: var(--secondary); color: white;">
+                                    <i class="fas fa-download"></i> Export Products
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Manage Products Section -->
+                    <div id="admin-products" class="admin-section">
+                        <div class="admin-header">
+                            <h2 style="color: var(--primary);">
+                                <i class="fas fa-box"></i> Manage Products
+                            </h2>
+                            <button onclick="closeAdminPanel()" class="btn" style="background: var(--light); color: var(--dark);">
+                                <i class="fas fa-times"></i> Close
+                            </button>
+                        </div>
+                        
+                        <div class="product-filters">
+                            <button class="filter-btn active" onclick="filterAdminProducts('all')">All Products</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('available')">Available</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('sold-out')">Sold Out</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('hidden')">Hidden</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('clothing')">Clothing</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('shoes')">Shoes</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('bags')">Bags</button>
+                            <button class="filter-btn" onclick="filterAdminProducts('jackets')">Jackets</button>
+                        </div>
+                        
+                        <div id="admin-products-list" class="admin-products-grid">
+                            <!-- Products will load here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Add Product Section -->
+                    <div id="admin-add" class="admin-section" style="display: none;">
+                        <div class="admin-header">
+                            <h2 style="color: var(--primary);">
+                                <i class="fas fa-plus-circle"></i> Add New Product
+                            </h2>
+                            <button onclick="closeAdminPanel()" class="btn" style="background: var(--light); color: var(--dark);">
+                                <i class="fas fa-times"></i> Close
+                            </button>
+                        </div>
+                        
+                        <div class="admin-form">
+                            <form id="addProductForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="product-name">Product Name *</label>
+                                        <input type="text" id="product-name" class="form-control" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-category">Category *</label>
+                                        <select id="product-category" class="form-control" required>
+                                            <option value="">Select Category</option>
+                                            <option value="clothing">Clothing</option>
+                                            <option value="shoes">Shoes</option>
+                                            <option value="bags">Bags</option>
+                                            <option value="jackets">Jackets</option>
+                                            <option value="pants">Pants</option>
+                                            <option value="accessories">Accessories</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="product-price">Price ($) *</label>
+                                        <input type="number" id="product-price" class="form-control" min="0" step="0.01" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-old-price">Old Price ($)</label>
+                                        <input type="number" id="product-old-price" class="form-control" min="0" step="0.01">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-description">Description *</label>
+                                    <textarea id="product-description" class="form-control" rows="4" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-images">Image URLs (separate with commas) *</label>
+                                    <textarea id="product-images" class="form-control" rows="3" required placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"></textarea>
+                                    <small style="color: var(--gray);">Add multiple image URLs separated by commas</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Product Status</label>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="product-sold-out">
+                                            <label for="product-sold-out">Sold Out</label>
+                                        </div>
+                                        
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="product-hidden">
+                                            <label for="product-hidden">Hidden (won't show in store)</label>
+                                        </div>
+                                        
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="product-featured">
+                                            <label for="product-featured">Featured Product</label>
+                                        </div>
+                                        
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="product-new">
+                                            <label for="product-new">New Arrival</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn" style="background: var(--primary); color: white; width: 100%; padding: 15px;">
+                                    <i class="fas fa-plus"></i> Add Product
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Orders Section -->
+                    <div id="admin-orders" class="admin-section" style="display: none;">
+                        <div class="admin-header">
+                            <h2 style="color: var(--primary);">
+                                <i class="fas fa-shopping-cart"></i> Order Management
+                            </h2>
+                            <button onclick="closeAdminPanel()" class="btn" style="background: var(--light); color: var(--dark);">
+                                <i class="fas fa-times"></i> Close
+                            </button>
+                        </div>
+                        
+                        <div style="background: white; padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary); margin-bottom: 20px;">All orders via WhatsApp</h3>
+                            <p style="color: var(--gray); margin-bottom: 30px;">
+                                All orders are received via WhatsApp on number: <strong>+961 81 400 899</strong>
+                            </p>
+                            
+                            <div style="background: var(--light); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                                <h4 style="color: var(--primary); margin-bottom: 15px;">Recent Orders (Sample)</h4>
+                                <div style="overflow-x: auto;">
+                                    <table style="width: 100%; border-collapse: collapse;">
+                                        <thead>
+                                            <tr style="background: rgba(108, 99, 255, 0.1);">
+                                                <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Order #</th>
+                                                <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Customer</th>
+                                                <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Products</th>
+                                                <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Amount</th>
+                                                <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="orders-list">
+                                            <!-- Orders will load here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ═══════════════════════════════════════════════════════
+    // EDIT PRODUCTS HERE - قم بتحرير المنتجات هنا
+    // ═══════════════════════════════════════════════════════
+    let products = [
+        // Clothing
+        {
+            id: 1,
+            name: "Casual Cotton T-Shirt",
+            price: 19.99,
+            oldPrice: 25.99,
+            images: [
+                "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop"
+            ],
+            category: "clothing",
+            description: "Comfortable and stylish cotton t-shirt available in multiple colors. Perfect for everyday wear.",
+            featured: true,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 2,
+            name: "Formal Shirt",
+            price: 29.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=600&h=600&fit=crop"
+            ],
+            category: "clothing",
+            description: "Elegant formal shirt made from high-quality cotton. Perfect for business occasions.",
+            featured: false,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 3,
+            name: "Summer Dress",
+            price: 34.99,
+            oldPrice: 44.99,
+            images: [
+                "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=600&fit=crop"
+            ],
+            category: "clothing",
+            description: "Light and comfortable summer dress, perfect for warm weather.",
+            featured: true,
+            new: false,
+            soldOut: false,
+            hidden: false
+        },
+        
+        // Shoes
+        {
+            id: 4,
+            name: "Running Sports Shoes",
+            price: 49.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=400&fit=crop",
+                "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&h=600&fit=crop"
+            ],
+            category: "shoes",
+            description: "Lightweight and durable running shoes with excellent cushioning for maximum comfort.",
+            featured: true,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 5,
+            name: "Casual Sneakers",
+            price: 29.99,
+            oldPrice: 39.99,
+            images: [
+                "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop"
+            ],
+            category: "shoes",
+            description: "Comfortable casual sneakers suitable for everyday use. Available in various colors.",
+            featured: false,
+            new: false,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 6,
+            name: "Formal Leather Shoes",
+            price: 59.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop"
+            ],
+            category: "shoes",
+            description: "High-quality leather formal shoes for business and special occasions.",
+            featured: false,
+            new: true,
+            soldOut: true,  // SOLD OUT
+            hidden: false
+        },
+        
+        // Bags
+        {
+            id: 7,
+            name: "Leather Handbag",
+            price: 79.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=600&fit=crop"
+            ],
+            category: "bags",
+            description: "Elegant leather handbag with multiple compartments. Available in black and brown.",
+            featured: true,
+            new: false,
+            soldOut: true,  // SOLD OUT
+            hidden: false
+        },
+        {
+            id: 8,
+            name: "Backpack",
+            price: 34.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop"
+            ],
+            category: "bags",
+            description: "Durable backpack with multiple pockets, perfect for school or travel.",
+            featured: false,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        
+        // Jackets
+        {
+            id: 9,
+            name: "Classic Denim Jacket",
+            price: 39.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=600&fit=crop"
+            ],
+            category: "jackets",
+            description: "Timeless denim jacket with a modern fit. Perfect for layering in any season.",
+            featured: true,
+            new: false,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 10,
+            name: "Winter Coat",
+            price: 89.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1539533113205-9d6b6c8e6f7d?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&h=600&fit=crop"
+            ],
+            category: "jackets",
+            description: "Warm and stylish winter coat with faux fur hood. Perfect for cold weather.",
+            featured: false,
+            new: false,
+            soldOut: false,
+            hidden: false
+        },
+        
+        // Pants
+        {
+            id: 11,
+            name: "Slim Fit Jeans",
+            price: 34.99,
+            oldPrice: 44.99,
+            images: [
+                "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&h=600&fit=crop"
+            ],
+            category: "pants",
+            description: "Modern slim fit jeans with stretch fabric for maximum comfort and style.",
+            featured: false,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 12,
+            name: "Casual Trousers",
+            price: 29.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=600&h=600&fit=crop"
+            ],
+            category: "pants",
+            description: "Comfortable casual trousers suitable for everyday wear.",
+            featured: false,
+            new: false,
+            soldOut: false,
+            hidden: true  // HIDDEN
+        },
+        
+        // Accessories
+        {
+            id: 13,
+            name: "Leather Belt",
+            price: 14.99,
+            oldPrice: 19.99,
+            images: [
+                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop"
+            ],
+            category: "accessories",
+            description: "Genuine leather belt with classic buckle. Available in black and brown.",
+            featured: false,
+            new: true,
+            soldOut: false,
+            hidden: false
+        },
+        {
+            id: 14,
+            name: "Fashion Watch",
+            price: 45.99,
+            oldPrice: null,
+            images: [
+                "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=600&fit=crop"
+            ],
+            category: "accessories",
+            description: "Stylish fashion watch with leather strap. Perfect for any occasion.",
+            featured: true,
+            new: false,
+            soldOut: false,
+            hidden: false
+        }
+    ];
+    
+    // Cart
+    let cart = JSON.parse(localStorage.getItem('mhCart')) || [];
+    
+    // Current filter
+    let currentFilter = 'all';
+    let adminCurrentFilter = 'all';
+    
+    // Page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update products count
+        document.getElementById('productsCount').textContent = products.length;
+        
+        renderHomePage();
+        updateCartDisplay();
+        
+        // Add effects to cards when appearing
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.product-card, .feature-card, .category-card, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+    });
+    
+    // Show sections
+    function showSection(section) {
+        // Hide all sections
+        document.getElementById('home-section').style.display = 'none';
+        document.getElementById('products-section').style.display = 'none';
+        document.getElementById('about-section').style.display = 'none';
+        
+        // Remove active from all links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Add active to selected link
+        event.target.classList.add('active');
+        
+        // Show requested section
+        if (section === 'home') {
+            document.getElementById('home-section').style.display = 'block';
+            renderHomePage();
+        } else if (section === 'products') {
+            document.getElementById('products-section').style.display = 'block';
+            renderProductsPage();
+        } else if (section === 'about') {
+            document.getElementById('about-section').style.display = 'block';
+        }
+    }
+    
+    // Render home page
+    function renderHomePage() {
+        // Nothing needed here since home page is static with categories
+    }
+    
+    // Scroll to location section
+    function scrollToLocation() {
+        const locationSection = document.querySelector('.store-location');
+        if (locationSection) {
+            locationSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+    // Show fast delivery info
+    function showFastDeliveryInfo() {
+        document.getElementById('fastDeliveryModal').style.display = 'flex';
+    }
+    
+    // Close fast delivery modal
+    function closeFastDeliveryModal() {
+        document.getElementById('fastDeliveryModal').style.display = 'none';
+    }
+    
+    // Filter products by category
+    function filterProducts(category) {
+        currentFilter = category;
+        
+        // Update filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Activate current filter button
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            const btnText = btn.textContent.toLowerCase();
+            const categoryText = category.toLowerCase();
+            
+            if ((category === 'all' && btnText === 'all products') ||
+                (category === 'available' && btnText === 'available') ||
+                (category === 'sold-out' && btnText === 'sold out') ||
+                (category === 'hidden' && btnText === 'hidden') ||
+                (category !== 'all' && category !== 'available' && category !== 'sold-out' && category !== 'hidden' && 
+                 btnText.includes(categoryText))) {
+                btn.classList.add('active');
+            }
+        });
+        
+        renderProductsPage();
+    }
+    
+    // Render products page
+    function renderProductsPage() {
+        let productsHtml = '';
+        
+        // Filter products
+        let filteredProducts = products;
+        
+        if (currentFilter === 'available') {
+            filteredProducts = products.filter(p => !p.soldOut && !p.hidden);
+        } else if (currentFilter === 'sold-out') {
+            filteredProducts = products.filter(p => p.soldOut === true);
+        } else if (currentFilter === 'hidden') {
+            filteredProducts = products.filter(p => p.hidden === true);
+        } else if (currentFilter !== 'all') {
+            filteredProducts = products.filter(p => p.category === currentFilter && !p.hidden);
+        } else {
+            filteredProducts = products.filter(p => !p.hidden);
+        }
+        
+        if (filteredProducts.length > 0) {
+            filteredProducts.forEach(product => {
+                productsHtml += createProductCard(product, false);
+            });
+        } else {
+            productsHtml = `<div style="text-align: center; color: var(--gray); grid-column: 1/-1; padding: 40px;">
+                <i class="fas fa-box-open" style="font-size: 60px; margin-bottom: 20px; color: #ddd;"></i>
+                <h3>No products found</h3>
+                <p>${currentFilter === 'sold-out' ? 'All products are currently available!' : 'Check back soon for new arrivals!'}</p>
+            </div>`;
+        }
+        
+        document.getElementById('all-products').innerHTML = productsHtml;
+    }
+    
+    // Create product card
+    function createProductCard(product, isAdmin) {
+        // Calculate discount percentage if old price exists
+        let discountHtml = '';
+        if (product.oldPrice) {
+            const discountPercent = Math.round((1 - product.price / product.oldPrice) * 100);
+            discountHtml = `<div class="product-badge sale">-${discountPercent}%</div>`;
+        }
+        
+        // Create badges
+        let badgesHtml = '';
+        if (product.featured) {
+            badgesHtml += '<div class="product-badge featured"><i class="fas fa-star"></i> Featured</div>';
+        }
+        if (product.new) {
+            badgesHtml += '<div class="product-badge new"><i class="fas fa-certificate"></i> New</div>';
+        }
+        if (product.soldOut) {
+            badgesHtml += '<div class="product-badge sold-out"><i class="fas fa-times-circle"></i> Sold Out</div>';
+        }
+        
+        // Create price HTML
+        let priceHtml = '';
+        if (product.oldPrice) {
+            priceHtml = `
+                <div class="price">$${product.price.toFixed(2)}</div>
+                <div class="price-old">$${product.oldPrice.toFixed(2)}</div>
+            `;
+        } else {
+            priceHtml = `<div class="price">$${product.price.toFixed(2)}</div>`;
+        }
+        
+        // Create image gallery if multiple images
+        let galleryHtml = '';
+        if (product.images.length > 1 && !isAdmin) {
+            galleryHtml = `<div class="image-gallery">`;
+            product.images.forEach((img, index) => {
+                galleryHtml += `
+                    <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeProductImage(this, ${product.id}, '${img}')">
+                        <img src="${img}" alt="Thumbnail ${index + 1}">
+                    </div>
+                `;
+            });
+            galleryHtml += `</div>`;
+        }
+        
+        // Create category icon
+        let categoryIcon = '';
+        switch(product.category) {
+            case 'clothing': categoryIcon = 'fas fa-tshirt'; break;
+            case 'shoes': categoryIcon = 'fas fa-shoe-prints'; break;
+            case 'bags': categoryIcon = 'fas fa-shopping-bag'; break;
+            case 'jackets': categoryIcon = 'fas fa-vest'; break;
+            case 'pants': categoryIcon = 'fas fa-user'; break;
+            case 'accessories': categoryIcon = 'fas fa-rings-wedding'; break;
+            default: categoryIcon = 'fas fa-tag';
+        }
+        
+        // Create buttons based on product status
+        let buttonsHtml = '';
+        if (isAdmin) {
+            // Admin view buttons
+            const statusClass = product.soldOut ? 'status-sold-out' : (product.hidden ? 'status-hidden' : 'status-available');
+            const statusText = product.soldOut ? 'SOLD OUT' : (product.hidden ? 'HIDDEN' : 'AVAILABLE');
+            
+            buttonsHtml = `
+                <div class="admin-product-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <h4 style="color: var(--dark);">${product.name}</h4>
+                        <span class="product-status ${statusClass}">${statusText}</span>
+                    </div>
+                    
+                    <div style="color: var(--gray); font-size: 14px; margin-bottom: 10px;">
+                        <i class="${categoryIcon}"></i> ${product.category.toUpperCase()}
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                            <strong style="color: var(--primary); font-size: 18px;">$${product.price.toFixed(2)}</strong>
+                            ${product.oldPrice ? `<span style="color: var(--gray); text-decoration: line-through;">$${product.oldPrice.toFixed(2)}</span>` : ''}
+                        </div>
+                        <p style="color: var(--gray); font-size: 13px; line-height: 1.4;">${product.description}</p>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="edit-btn" onclick="editProduct(${product.id})">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteProduct(${product.id})">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                        <button class="toggle-btn" onclick="toggleProductStatus(${product.id})">
+                            <i class="fas fa-sync"></i> Toggle
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Customer view buttons
+            if (product.soldOut) {
+                buttonsHtml = `
+                    <div class="contact-options">
+                        <button class="whatsapp-btn sold-out-btn" disabled>
+                            <i class="fas fa-times-circle"></i> Sold Out
+                        </button>
+                        <button onclick="showNotification('${product.name} is currently sold out. Please check back later!')" 
+                                class="btn" style="background: var(--light); color: var(--dark); margin-top: 5px; width: 100%;">
+                            <i class="fas fa-bell"></i> Notify When Available
+                        </button>
+                    </div>
+                `;
+            } else {
+                const message = encodeURIComponent(`Hello, I want to order: ${product.name} for $${product.price.toFixed(2)}`);
+                buttonsHtml = `
+                    <div class="contact-options">
+                        <a href="https://wa.me/+96181400899?text=${message}" 
+                           class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                        <button onclick="addToCart(${product.id})" class="view-btn">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+            }
+            
+            // Return customer product card
+            return `
+                <div class="product-card" ${product.hidden ? 'style="display: none;"' : ''}>
+                    ${discountHtml}
+                    ${badgesHtml}
+                    
+                    <div class="product-image ${product.soldOut ? 'sold-out' : ''}">
+                        <img src="${product.images[0]}" alt="${product.name}" id="main-image-${product.id}">
+                        ${product.soldOut ? '<div class="out-of-stock-overlay">Sold Out</div>' : ''}
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-category">
+                            <i class="${categoryIcon}"></i> ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+                        </div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        
+                        ${galleryHtml}
+                        
+                        <div class="product-price">
+                            <div class="price-container">
+                                ${priceHtml}
+                            </div>
+                        </div>
+                        
+                        ${buttonsHtml}
+                    </div>
+                </div>
+            `;
+        }
+        
+        return buttonsHtml;
+    }
+    
+    // Change product image on thumbnail click
+    function changeProductImage(thumbnail, productId, imageUrl) {
+        // Update main image
+        document.getElementById(`main-image-${productId}`).src = imageUrl;
+        
+        // Update active thumbnail
+        const thumbnails = thumbnail.parentElement.querySelectorAll('.thumbnail');
+        thumbnails.forEach(t => t.classList.remove('active'));
+        thumbnail.classList.add('active');
+    }
+    
+    // Add to cart
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product || product.soldOut || product.hidden) {
+            showNotification('Sorry, this product is not available!');
+            return;
+        }
+        
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+                image: product.images[0]
+            });
+        }
+        
+        updateCartDisplay();
+        showNotification(`${product.name} added to cart!`);
+    }
+    
+    // Update cart display
+    function updateCartDisplay() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const totalAmountUSD = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        
+        document.getElementById('cartTotalItems').textContent = totalItems;
+        
+        // Update cart content in modal
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">Shopping cart is empty</p>';
+        } else {
+            let cartHtml = '';
+            cart.forEach(item => {
+                const itemTotalUSD = (item.price * item.quantity).toFixed(2);
+                
+                cartHtml += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; flex-shrink: 0;">
+                                <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div>
+                                <strong style="display: block; margin-bottom: 5px;">${item.name}</strong>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <button onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})" style="width: 25px; height: 25px; border: none; background: var(--light); border-radius: 50%; cursor: pointer; font-size: 14px;">-</button>
+                                    <span style="min-width: 30px; text-align: center;">${item.quantity}</span>
+                                    <button onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})" style="width: 25px; height: 25px; border: none; background: var(--light); border-radius: 50%; cursor: pointer; font-size: 14px;">+</button>
+                                    <span style="color: var(--primary); font-weight: 600; margin-left: 10px;">$${itemTotalUSD}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" style="background: none; border: none; color: #ff4757; font-size: 18px; cursor: pointer; padding: 5px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            cartItems.innerHTML = cartHtml;
+        }
+        
+        cartTotal.textContent = `$${totalAmountUSD.toFixed(2)}`;
+        
+        // Save cart
+        localStorage.setItem('mhCart', JSON.stringify(cart));
+    }
+    
+    // Update product quantity in cart
+    function updateCartQuantity(productId, newQuantity) {
+        if (newQuantity < 1) {
+            cart = cart.filter(item => item.id !== productId);
+        } else {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = newQuantity;
+            }
+        }
+        
+        updateCartDisplay();
+    }
+    
+    // Remove product from cart
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        updateCartDisplay();
+        showNotification('Product removed from cart');
+    }
+    
+    // Clear cart
+    function clearCart() {
+        if (confirm('Are you sure you want to clear the shopping cart?')) {
+            cart = [];
+            updateCartDisplay();
+            showNotification('Cart cleared successfully');
+        }
+    }
+    
+    // Checkout via WhatsApp
+    function checkout() {
+        if (cart.length === 0) {
+            alert('Shopping cart is empty!');
+            return;
+        }
+        
+        let message = "👕 *MH Fashion Order* 👕\n\n";
+        message += "Hello, I want to order:\n\n";
+        let totalUSD = 0;
+        
+        cart.forEach(item => {
+            const itemTotalUSD = (item.price * item.quantity).toFixed(2);
+            message += `• ${item.name} × ${item.quantity}\n`;
+            message += `  Price: $${itemTotalUSD}\n\n`;
+            totalUSD += item.price * item.quantity;
+        });
+        
+        message += `📦 *Total: $${totalUSD.toFixed(2)}*\n\n`;
+        
+        // Check for fast delivery eligibility
+        if (totalUSD >= 50) {
+            message += "🎉 *FREE DELIVERY* (Order over $50)\n";
+        } else {
+            message += "🚚 Delivery charge: $5 (Order under $50)\n";
+        }
+        
+        message += "\n📞 *FAST DELIVERY AVAILABLE* - Mention this for same-day delivery!\n";
+        message += "\n📍 Delivery Address: ________________\n";
+        message += "\n📱 Contact Number: ________________\n";
+        message += "\nPlease confirm the order and delivery details.";
+        
+        const whatsappUrl = `https://wa.me/+96181400899?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        
+        // Close cart after order
+        closeCartModal();
+    }
+    
+    // Show cart modal
+    function showCartModal() {
+        updateCartDisplay();
+        document.getElementById('cartModal').style.display = 'flex';
+    }
+    
+    // Close cart modal
+    function closeCartModal() {
+        document.getElementById('cartModal').style.display = 'none';
+    }
+    
+    // Notifications
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.innerHTML = `
+            <div style="position: fixed; top: 100px; right: 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+                        color: white; padding: 15px 25px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(108,99,255,0.4); 
+                        z-index: 10001; display: flex; align-items: center; gap: 12px; animation: fadeIn 0.3s ease-out;">
+                <i class="fas fa-check-circle" style="font-size: 20px;"></i>
+                <div>
+                    <strong>Success!</strong><br>
+                    <span style="font-size: 14px;">${message}</span>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+    
+    // Admin Panel Functions
+    function openAdminPanel() {
+        document.getElementById('adminPanel').style.display = 'flex';
+        showAdminSection('stats');
+        updateAdminStatistics();
+    }
+    
+    function closeAdminPanel() {
+        document.getElementById('adminPanel').style.display = 'none';
+    }
+    
+    function showAdminSection(section) {
+        // Hide all sections
+        document.querySelectorAll('.admin-section').forEach(sec => {
+            sec.style.display = 'none';
+        });
+        
+        // Remove active from all sidebar buttons
+        document.querySelectorAll('.admin-sidebar .btn').forEach(btn => {
+            btn.style.background = 'rgba(255,255,255,0.1)';
+        });
+        
+        // Show requested section
+        document.getElementById(`admin-${section}`).style.display = 'block';
+        
+        // Add active to clicked button
+        event.target.style.background = 'rgba(255,255,255,0.2)';
+        
+        // Load content based on section
+        if (section === 'products') {
+            loadAdminProducts();
+        } else if (section === 'orders') {
+            loadOrders();
+        }
+    }
+    
+    function updateAdminStatistics() {
+        const totalProducts = products.length;
+        const availableProducts = products.filter(p => !p.soldOut && !p.hidden).length;
+        const soldOutProducts = products.filter(p => p.soldOut).length;
+        const hiddenProducts = products.filter(p => p.hidden).length;
+        
+        document.getElementById('admin-total-products').textContent = totalProducts;
+        document.getElementById('admin-available-products').textContent = availableProducts;
+        document.getElementById('admin-sold-out-products').textContent = soldOutProducts;
+        document.getElementById('admin-hidden-products').textContent = hiddenProducts;
+    }
+    
+    function filterAdminProducts(filter) {
+        adminCurrentFilter = filter;
+        
+        // Update filter buttons
+        document.querySelectorAll('#admin-products .filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Activate current filter button
+        const filterButtons = document.querySelectorAll('#admin-products .filter-btn');
+        filterButtons.forEach(btn => {
+            const btnText = btn.textContent.toLowerCase();
+            const filterText = filter.toLowerCase();
+            
+            if ((filter === 'all' && btnText === 'all products') ||
+                (filter === 'available' && btnText === 'available') ||
+                (filter === 'sold-out' && btnText === 'sold out') ||
+                (filter === 'hidden' && btnText === 'hidden') ||
+                (filter !== 'all' && filter !== 'available' && filter !== 'sold-out' && filter !== 'hidden' && 
+                 btnText.includes(filterText))) {
+                btn.classList.add('active');
+            }
+        });
+        
+        loadAdminProducts();
+    }
+    
+    function loadAdminProducts() {
+        let productsHtml = '';
+        
+        // Filter products
+        let filteredProducts = products;
+        
+        if (adminCurrentFilter === 'available') {
+            filteredProducts = products.filter(p => !p.soldOut && !p.hidden);
+        } else if (adminCurrentFilter === 'sold-out') {
+            filteredProducts = products.filter(p => p.soldOut);
+        } else if (adminCurrentFilter === 'hidden') {
+            filteredProducts = products.filter(p => p.hidden);
+        } else if (adminCurrentFilter !== 'all') {
+            filteredProducts = products.filter(p => p.category === adminCurrentFilter);
+        }
+        
+        if (filteredProducts.length > 0) {
+            filteredProducts.forEach(product => {
+                productsHtml += createProductCard(product, true);
+            });
+        } else {
+            productsHtml = `<div style="text-align: center; color: var(--gray); grid-column: 1/-1; padding: 40px;">
+                <i class="fas fa-box-open" style="font-size: 60px; margin-bottom: 20px; color: #ddd;"></i>
+                <h3>No products found</h3>
+                <p>No products match the selected filter.</p>
+            </div>`;
+        }
+        
+        document.getElementById('admin-products-list').innerHTML = productsHtml;
+    }
+    
+    function loadOrders() {
+        // This is a sample - in real app, you would fetch from database
+        const ordersList = document.getElementById('orders-list');
+        ordersList.innerHTML = `
+            <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">#1001</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Sarah Johnson</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Casual T-Shirt (x2)</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">$39.98</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">
+                    <span style="background: #36D399; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px;">Completed</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">#1002</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Mike Wilson</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Running Shoes (x1)</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">$49.99</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">
+                    <span style="background: #6C63FF; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px;">Processing</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">#1003</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Emma Davis</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">Leather Handbag (x1), Belt (x1)</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">$94.98</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">
+                    <span style="background: #FF6584; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px;">Pending</span>
+                </td>
+            </tr>
+        `;
+    }
+    
+    function editProduct(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        
+        // Fill form with product data
+        document.getElementById('product-name').value = product.name;
+        document.getElementById('product-category').value = product.category;
+        document.getElementById('product-price').value = product.price;
+        document.getElementById('product-old-price').value = product.oldPrice || '';
+        document.getElementById('product-description').value = product.description;
+        document.getElementById('product-images').value = product.images.join(', ');
+        document.getElementById('product-sold-out').checked = product.soldOut;
+        document.getElementById('product-hidden').checked = product.hidden;
+        document.getElementById('product-featured').checked = product.featured;
+        document.getElementById('product-new').checked = product.new;
+        
+        // Change form submit to update instead of add
+        const form = document.getElementById('addProductForm');
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            updateProduct(productId);
+        };
+        
+        // Change button text
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Product';
+        
+        // Switch to add product section
+        showAdminSection('add');
+    }
+    
+    function updateProduct(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        
+        product.name = document.getElementById('product-name').value;
+        product.category = document.getElementById('product-category').value;
+        product.price = parseFloat(document.getElementById('product-price').value);
+        const oldPrice = document.getElementById('product-old-price').value;
+        product.oldPrice = oldPrice ? parseFloat(oldPrice) : null;
+        product.description = document.getElementById('product-description').value;
+        product.images = document.getElementById('product-images').value.split(',').map(img => img.trim());
+        product.soldOut = document.getElementById('product-sold-out').checked;
+        product.hidden = document.getElementById('product-hidden').checked;
+        product.featured = document.getElementById('product-featured').checked;
+        product.new = document.getElementById('product-new').checked;
+        
+        // Reset form
+        document.getElementById('addProductForm').reset();
+        
+        // Reset form submit to add new product
+        const form = document.getElementById('addProductForm');
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            addNewProduct();
+        };
+        
+        // Reset button text
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<i class="fas fa-plus"></i> Add Product';
+        
+        // Update display
+        loadAdminProducts();
+        renderProductsPage();
+        updateAdminStatistics();
+        showNotification('Product updated successfully!');
+    }
+    
+    function deleteProduct(productId) {
+        if (confirm('Are you sure you want to delete this product? This action cannot be undone.')) {
+            products = products.filter(p => p.id !== productId);
+            loadAdminProducts();
+            renderProductsPage();
+            updateAdminStatistics();
+            showNotification('Product deleted successfully!');
+        }
+    }
+    
+    function toggleProductStatus(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        
+        // Toggle between available, sold out, and hidden
+        if (!product.soldOut && !product.hidden) {
+            product.soldOut = true;
+            product.hidden = false;
+        } else if (product.soldOut && !product.hidden) {
+            product.soldOut = false;
+            product.hidden = true;
+        } else {
+            product.soldOut = false;
+            product.hidden = false;
+        }
+        
+        loadAdminProducts();
+        renderProductsPage();
+        updateAdminStatistics();
+        showNotification('Product status updated!');
+    }
+    
+    function addNewProduct() {
+        const name = document.getElementById('product-name').value;
+        const category = document.getElementById('product-category').value;
+        const price = parseFloat(document.getElementById('product-price').value);
+        const oldPrice = document.getElementById('product-old-price').value;
+        const description = document.getElementById('product-description').value;
+        const images = document.getElementById('product-images').value.split(',').map(img => img.trim());
+        const soldOut = document.getElementById('product-sold-out').checked;
+        const hidden = document.getElementById('product-hidden').checked;
+        const featured = document.getElementById('product-featured').checked;
+        const newProduct = document.getElementById('product-new').checked;
+        
+        // Generate new ID
+        const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+        
+        // Add new product
+        products.push({
+            id: newId,
+            name,
+            category,
+            price,
+            oldPrice: oldPrice ? parseFloat(oldPrice) : null,
+            description,
+            images,
+            soldOut,
+            hidden,
+            featured,
+            new: newProduct
+        });
+        
+        // Reset form
+        document.getElementById('addProductForm').reset();
+        
+        // Update display
+        loadAdminProducts();
+        renderProductsPage();
+        updateAdminStatistics();
+        showNotification('New product added successfully!');
+    }
+    
+    function exportProducts() {
+        const dataStr = JSON.stringify(products, null, 2);
+        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+        
+        const exportFileDefaultName = 'mh-fashion-products.json';
+        
+        const linkElement = document.createElement('a');
+        linkElement.setAttribute('href', dataUri);
+        linkElement.setAttribute('download', exportFileDefaultName);
+        linkElement.click();
+        
+        showNotification('Products exported successfully!');
+    }
+    
+    // Form submission
+    document.getElementById('addProductForm').onsubmit = function(e) {
+        e.preventDefault();
+        addNewProduct();
+    };
+    </script>
+</body>
+</html>
